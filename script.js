@@ -31,7 +31,7 @@ function copyData() {
   const chapterKomik = document.getElementById("chapterKomik").value;
   const judulSitus = document.getElementById("judulSitusInput").value;
 
-  const copiedData = `Done!!! ✔️\n${judulKomik} 🏷️\nChapter ${chapterKomik} 📚\nSitus ${judulSitus} 🔗\n${
+  const copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n${
     document.getElementById("timestamp").textContent
   }\nhttps://uploads.disquscdn.com/images/7670b49c1158dc38d497a92e6b94313e3d50b21d5bdae4462b60b01944a318cf.gif `;
 

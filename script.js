@@ -24,8 +24,6 @@ function updateTimestamp() {
   timestampElement.textContent = `${formattedTimestamp} Pukul ${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
 
-// ... (kode lainnya tetap sama)
-
 function copyData() {
   const judulKomik = document.getElementById("judulKomik").value;
   const chapterKomik = document.getElementById("chapterKomik").value;
@@ -33,7 +31,7 @@ function copyData() {
 
   const copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n${
     document.getElementById("timestamp").textContent
-  }\n`;
+  }\nhttps://uploads.disquscdn.com/images/7670b49c1158dc38d497a92e6b94313e3d50b21d5bdae4462b60b01944a318cf.gif `;
 
   navigator.clipboard
     .writeText(copiedData)
@@ -50,3 +48,27 @@ updateTimestamp();
 
 // Update timestamp every second
 setInterval(updateTimestamp, 1);
+
+// Function from the background project
+function randomValues() {
+  anime({
+    targets: ".square, .circle, .triangle, .oval",
+    translateX: function () {
+      return anime.random(-500, 500);
+    },
+    translateY: function () {
+      return anime.random(-300, 300);
+    },
+    rotate: function () {
+      return anime.random(0, 360);
+    },
+    scale: function () {
+      return anime.random(0.2, 2);
+    },
+    duration: 1000,
+    easing: "easeInOutQuad",
+    complete: randomValues,
+  });
+}
+
+randomValues();

@@ -1,3 +1,4 @@
+/* Style dari proyek komik */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #282c35;
@@ -7,6 +8,7 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 .komik-container {
@@ -15,7 +17,46 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* Tambahkan properti posisi relatif untuk memposisikan copyright */
+  position: relative;
+  z-index: 2; /* Atur z-index agar di atas proyek background */
+}
+
+/* Style dari proyek background */
+.square,
+.circle,
+.triangle,
+.oval,
+.diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+}
+
+.square {
+  background-color: #303030;
+  z-index: 1; /* Atur z-index agar di bawah proyek komik */
+}
+
+.circle {
+  background: #1cd99d;
+  border-radius: 50%;
+  z-index: 1; /* Atur z-index agar di bawah proyek komik */
+}
+
+.triangle {
+  background: #ffa5f3;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 1; /* Atur z-index agar di bawah proyek komik */
+}
+.oval {
+  background-color: #90e9ff; /* Contoh warna untuk oval */
+  width: 100px; /* Sesuaikan lebar oval */
+  height: 50px; /* Sesuaikan tinggi oval */
+  border-radius: 50% / 50%; /* Membuat oval dengan border-radius */
 }
 
 .copyright {

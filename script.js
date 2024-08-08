@@ -28,10 +28,9 @@ function copyData() {
   const judulKomik = document.getElementById("judulKomik").value;
   const chapterKomik = document.getElementById("chapterKomik").value;
   const judulSitus = document.getElementById("judulSitusInput").value;
+  const note = document.getElementById("noteInput").value;
 
-  const copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n${
-    document.getElementById("timestamp").textContent
-  }\n`;
+  const copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n╰┈➤ Komentar: ${note}\n${document.getElementById("timestamp").textContent}\n`;
 
   navigator.clipboard
     .writeText(copiedData)
@@ -42,6 +41,7 @@ function copyData() {
       console.error("Gagal menyalin data: ", err);
     });
 }
+
 
 // Update timestamp on page load
 updateTimestamp();

@@ -41,7 +41,15 @@ function copyData() {
   // Tambahkan timestamp setelah komentar
   copiedData += `${document.getElementById("timestamp").textContent}\n`;
 
-
+  navigator.clipboard
+    .writeText(copiedData)
+    .then(function () {
+      alert("Data Komik berhasil disalin! ><");
+    })
+    .catch(function (err) {
+      console.error("Gagal menyalin data: ", err);
+    });
+}
 
 // Update timestamp on page load
 updateTimestamp();

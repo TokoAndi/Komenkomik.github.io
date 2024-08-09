@@ -30,17 +30,17 @@ function copyData() {
   const judulSitus = document.getElementById("judulSitusInput").value;
   const note = document.getElementById("noteInput").value;
 
-  const copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n╰┈➤ Komentar: ${note}\n${document.getElementById("timestamp").textContent}\n`;
+  // Buat template untuk data yang akan dicopy
+  let copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n`;
 
-  navigator.clipboard
-    .writeText(copiedData)
-    .then(function () {
-      alert("Data Komik berhasil disalin! ><");
-    })
-    .catch(function (err) {
-      console.error("Gagal menyalin data: ", err);
-    });
-}
+  // Tambahkan komentar jika ada isinya
+  if (note.trim() !== "") {
+    copiedData += `╰┈➤ Komentar: ${note}\n`;
+  }
+
+  // Tambahkan timestamp setelah komentar
+  copiedData += `${document.getElementById("timestamp").textContent}\n`;
+
 
 
 // Update timestamp on page load

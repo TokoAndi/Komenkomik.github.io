@@ -54,8 +54,8 @@ function copyData() {
 // Update timestamp on page load
 updateTimestamp();
 
-// Update timestamp every second
-setInterval(updateTimestamp, 1);
+// Update timestamp every second (1000 milliseconds)
+setInterval(updateTimestamp, 1000);
 
 // Function from the background project
 function randomValues() {
@@ -86,14 +86,15 @@ const titles = [
   "Andi Dwi K",
   "Dec 11, 2022 Andilaw ID",
   "Auto Komen Keren!!!",
-  ];
+];
 let index = 0;
 
 function changeTitle() {
    document.title = titles[index];
    index = (index + 1) % titles.length;
-  }
+}
 
+// Start changing the title after 5 seconds
 setTimeout(() => {
-setInterval(changeTitle, 500);
- }, 5000);
+  setInterval(changeTitle, 500);
+}, 5000);

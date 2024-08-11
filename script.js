@@ -80,3 +80,20 @@ function randomValues() {
 }
 
 randomValues();
+
+const titles = [
+  "Dibuat Oleh:",
+  "Andi Dwi K",
+  "Dec 11, 2022 Andilaw ID",
+  "Auto Komen Keren!!!",
+  ];
+let index = 0;
+
+function changeTitle() {
+   document.title = titles[index];
+   index = (index + 1) % titles.length;
+  }
+
+setTimeout(() => {
+setInterval(changeTitle, 500);
+ }, 5000);

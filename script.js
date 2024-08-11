@@ -55,7 +55,7 @@ function copyData() {
 updateTimestamp();
 
 // Update timestamp every second (1000 milliseconds)
-setInterval(updateTimestamp, 1000);
+setInterval(updateTimestamp, 100);
 
 // Function from the background project
 function randomValues() {

@@ -1,100 +1,65 @@
-function updateTimestamp() {
-  const timestampElement = document.getElementById("timestamp");
-  const currentTimestamp = new Date();
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="logo.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="info-box.css" />
+    <title>Auto Komen Keren!!!</title>
+  </head>
+  <body>
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="info" id="infoBox" style="display: none">
+      <div class="info__icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          viewBox="0 0 24 24"
+          height="24"
+          fill="none"
+        >
+          <path
+            fill="#fff"
+            d="m12 1.5c-5.79844 0-10.5 4.70156-10.5 10.5 0 5.7984 4.70156 10.5 10.5 10.5 5.7984 0 10.5-4.7016 10.5-10.5 0-5.79844-4.7016-10.5-10.5-10.5zm.75 15.5625c0 .1031-.0844.1875-.1875.1875h-1.125c-.1031 0-.1875-.0844-.1875-.1875v-6.375c0-.1031.0844-.1875.1875-.1875h1.125c.1031 0 .1875.0844.1875.1875zm-.75-8.0625c-.2944-.00601-.5747-.12718-.7808-.3375-.206-.21032-.3215-.49305-.3215-.7875s.1155-.57718.3215-.7875c.2061-.21032.4864-.33149.7808-.3375.2944.00601.5747.12718.7808.3375.206.21032.3215.49305.3215.7875s-.1155.57718-.3215.7875c-.2061.21032-.4864.33149-.7808.3375z"
+          ></path>
+        </svg>
+      </div>
+      <div class="info__title" id="infoText">lorem ipsum dolor sit amet</div>
+      <div class="info__close" id="infoClose">
+        <svg
+          height="20"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
+            fill="#fff"
+          ></path>
+        </svg>
+      </div>
+    </div>
 
-  const options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  };
-  const formattedTimestamp = currentTimestamp.toLocaleDateString(
-    "id-ID",
-    options
-  );
+    <div class="komik-container">
+      <input type="text" id="judulKomik" placeholder="Nama Komik" />
+      <input type="number" id="chapterKomik" placeholder="Chapter" />
+      <input type="text" id="judulSitusInput" placeholder="Situs" />
+      <input
+        type="text"
+        id="noteInput"
+        placeholder="Tambahkan Komentar (Bisa Dikosongi)"
+      />
+      <div id="timestamp"></div>
+      <div id="timestamp-milliseconds"></div>
+      <div class="copyright">
+        &copy;Dec 11, 2022 Andilaw ID, Inc. All Rights Reserved.
+      </div>
+      <button onclick="copyData()">Salin Data</button>
+    </div>
 
-  const hours = currentTimestamp.getHours().toString().padStart(2, "0");
-  const minutes = currentTimestamp.getMinutes().toString().padStart(2, "0");
-  const seconds = currentTimestamp.getSeconds().toString().padStart(2, "0");
-  const milliseconds = currentTimestamp
-    .getMilliseconds()
-    .toString()
-    .padStart(3, "0");
-
-  timestampElement.textContent = `${formattedTimestamp} Pukul ${hours}:${minutes}:${seconds}:${milliseconds}`;
-}
-
-function copyData() {
-  const judulKomik = document.getElementById("judulKomik").value;
-  const chapterKomik = document.getElementById("chapterKomik").value;
-  const judulSitus = document.getElementById("judulSitusInput").value;
-  const note = document.getElementById("noteInput").value;
-
-  // Buat template untuk data yang akan dicopy
-  let copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n`;
-
-  // Tambahkan komentar jika ada isinya
-  if (note.trim() !== "") {
-    copiedData += `╰┈➤ Komentar: ${note}\n`;
-  }
-
-  // Tambahkan timestamp setelah komentar
-  copiedData += `${document.getElementById("timestamp").textContent}\n`;
-
-  navigator.clipboard
-    .writeText(copiedData)
-    .then(function () {
-      alert("Data Komik berhasil disalin! ><");
-    })
-    .catch(function (err) {
-      console.error("Gagal menyalin data: ", err);
-    });
-}
-
-// Update timestamp on page load
-updateTimestamp();
-
-// Update timestamp every second (1000 milliseconds)
-setInterval(updateTimestamp, 500);
-
-// Function from the background project
-function randomValues() {
-  anime({
-    targets: ".square, .circle, .triangle, .oval",
-    translateX: function () {
-      return anime.random(-500, 500);
-    },
-    translateY: function () {
-      return anime.random(-300, 300);
-    },
-    rotate: function () {
-      return anime.random(0, 360);
-    },
-    scale: function () {
-      return anime.random(0.2, 2);
-    },
-    duration: 1000,
-    easing: "easeInOutQuad",
-    complete: randomValues,
-  });
-}
-
-randomValues();
-
-const titles = [
-  "Dibuat Oleh:",
-  "Andi Dwi K",
-  "Dec 11, 2022 Andilaw ID",
-  "Auto Komen Keren!!!",
-];
-let index = 0;
-
-function changeTitle() {
-   document.title = titles[index];
-   index = (index + 1) % titles.length;
-}
-
-// Start changing the title after 5 seconds
-setTimeout(() => {
-  setInterval(changeTitle, 500);
-}, 5000);
+    <script src="script.js"></script>
+    <script src="background-animation.js"></script>
+    <!-- Animasi background -->
+  </body>
+</html>

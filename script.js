@@ -36,6 +36,9 @@ function showInfoBox(message) {
   }, 3000);
 }
 
+// Variabel global untuk melacak jumlah klik dengan kata-kata kasar
+let badWordClickCount = 0;
+
 function copyData() {
   const judulKomik = document.getElementById("judulKomik").value.trim();
   const chapterKomik = document.getElementById("chapterKomik").value.trim();
@@ -43,14 +46,68 @@ function copyData() {
   const note = document.getElementById("noteInput").value.trim();
 
   // Cek apakah judul komik dan chapter komik diisi
-  if (!chapterKomik) {
-    showInfoBox("Chapter harus diisi yaa!!.");
+  if (!judulKomik && !chapterKomik && !judulSitus && !note) {
+    showInfoBox("Semua Inputnya diisi tod!!.");
     return;
   }
   if (!judulKomik) {
     showInfoBox("Nama Komik harus diisi yaa!!.");
     return;
   }
+  if (!chapterKomik) {
+    showInfoBox("Chapter harus diisi yaa!!.");
+    return;
+  }
+  if (chapterKomik < 0) {
+    showInfoBox("Chapter tidak boleh bernilai negatif!!.");
+    return false;
+  }
+  if (!judulSitus) {
+    showInfoBox("Situs harus diisi yaa!!.");
+    return;
+  }
+
+  // // Daftar kata-kata kasar yang ingin dicegah
+  // const forbiddenWords = [
+  //   "anjing",
+  //   "kontol",
+  //   "memek",
+  //   "ajg",
+  //   "tai",
+  //   "jembut",
+  //   "babi",
+  //   "jancok",
+  //   "jancuk",
+  //   "ngentot",
+  //   "bajingan",
+  // ]; // Ganti dengan kata-kata yang ingin kamu cegah
+
+  // // Cek apakah input note mengandung kata-kata kasar
+  // const containsForbiddenWords = forbiddenWords.some((word) =>
+  //   note.toLowerCase().includes(word)
+  // );
+
+  // if (containsForbiddenWords) {
+  //   badWordClickCount++; // Increment counter when bad words are found
+
+  //   if (badWordClickCount >= 4) {
+  //     // If bad words are found for the 4th time, copy a warning message
+  //     navigator.clipboard
+  //       .writeText("HARAP SOPAN DALAM BERSOSIAL!!")
+  //       .then(function () {
+  //         showInfoBox("Data Komik berhasil disalin! ><");
+  //         badWordClickCount = 0; // Reset the counter after warning message
+  //       })
+  //       .catch(function (err) {
+  //         showInfoBox("...");
+  //         console.error("...", err);
+  //       });
+  //   } else {
+  //     showInfoBox("Tidak boleh berkata kasar yaa!, Nanti ke Banned lohh..");
+  //   }
+
+  //   return; // Exit function if bad words are detected
+  // }
 
   // Buat template untuk data yang akan dicopy
   let copiedData = `Done!!! ✔️\n╰┈➤ ${judulKomik} 🏷️\n╰┈➤ Chapter ${chapterKomik} 📚\n╰┈➤ Situs ${judulSitus} 🔗\n`;

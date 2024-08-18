@@ -10,6 +10,32 @@
   </head>
   <body>
     <canvas id="backgroundCanvas"></canvas>
+    <div class="main-container">
+      <div class="title-container">
+        <h1 class="title-text">Auto Komen Keren!!!</h1>
+      </div>
+      <div>
+        <div class="judul-container">
+          <div class="judul-text"></div>
+        </div>
+      </div>
+      <div class="komik-container">
+        <input type="text" id="judulKomik" placeholder="Nama Komik" />
+        <input type="number" id="chapterKomik" placeholder="Chapter" />
+        <input type="text" id="judulSitusInput" placeholder="Situs" />
+        <input
+          type="text"
+          id="noteInput"
+          placeholder="Tambahkan Komentar (Bisa Dikosongi)"
+        />
+        <div id="timestamp"></div>
+        <div id="timestamp-milliseconds"></div>
+        <div class="copyright">
+          <span>&copy;Dec 11, 2022 Andilaw ID, Inc. All Rights Reserved.</span>
+        </div>
+        <button onclick="copyData()">Salin Data</button>
+      </div>
+    </div>
     <div class="info" id="infoBox" style="display: none">
       <div class="info__icon">
         <svg
@@ -41,25 +67,10 @@
       </div>
     </div>
 
-    <div class="komik-container">
-      <input type="text" id="judulKomik" placeholder="Nama Komik" />
-      <input type="number" id="chapterKomik" placeholder="Chapter" />
-      <input type="text" id="judulSitusInput" placeholder="Situs" />
-      <input
-        type="text"
-        id="noteInput"
-        placeholder="Tambahkan Komentar (Bisa Dikosongi)"
-      />
-      <div id="timestamp"></div>
-      <div id="timestamp-milliseconds"></div>
-      <div class="copyright">
-        <span>&copy;Dec 11, 2022 Andilaw ID, Inc. All Rights Reserved.</span>
-      </div>
-      <button onclick="copyData()">Salin Data</button>
-    </div>
-
     <script src="script.js"></script>
     <script src="background-animation.js"></script>
+    <script src="judul.js"></script>
+
     <!-- Animasi background -->
   </body>
 </html>

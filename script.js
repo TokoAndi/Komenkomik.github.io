@@ -159,3 +159,16 @@ function changeTitle() {
 setTimeout(() => {
   setInterval(changeTitle, 500);
 }, 5000);
+
+// mencegah copy
+// Mencegah klik kanan
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+// Mencegah shortcut keyboard (Ctrl+C, Ctrl+X, dll.)
+document.addEventListener("keydown", function (e) {
+  if (e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) {
+    e.preventDefault();
+  }
+});

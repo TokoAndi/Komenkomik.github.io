@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi Satuan Panjang</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>KONVERSI SATUAN PANJANG</h1>
+      <div class="converter">
+        <div class="unit-selector">
+          <div class="dropdown">
+            <button id="left-btn" class="unit-btn">Chi</button>
+            <div class="dropdown-content" id="left-dropdown"></div>
+          </div>
+          <div class="equal">=</div>
+          <div class="dropdown">
+            <button id="right-btn" class="unit-btn">Meter</button>
+            <div class="dropdown-content" id="right-dropdown"></div>
+          </div>
+        </div>
+        <div class="input-box">
+          <textarea id="left-input" placeholder="Silahkan isi..."></textarea>
+          <textarea id="right-input" readonly></textarea>
+          <span id="result-unit"></span>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
